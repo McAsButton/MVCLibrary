@@ -1,0 +1,32 @@
+﻿@model Library.Common.DTOs.AuthorDTO
+@{
+	ViewData["Title"] = "Editar Autor";
+}
+
+<h1>Editar Autor</h1>
+
+<form asp-action="Edit" method="POST">
+
+	<input type="hidden" asp-for="Id" />
+
+	<div class="mb-3">
+		<label for="FirstName" class="form-label">Nombres</label>
+		<input asp-for="FirstName" type="text" class="form-control" id="FirstName" name="FirstName" placeholder="Digite los nombres...">
+		<span asp-validation-for="FirstName" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label for="LastName" class="form-label">Apellidos</label>
+		<input asp-for="LastName" type="text" class="form-control" id="LastName" name="LastName" placeholder="Digite los apellidos...">
+		<span asp-validation-for="LastName" class="text-danger"></span>
+	</div>
+	<button type="submit" class="btn btn-warning">Guardar</button>
+	<a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+
+	@section Scripts
+ {
+		@{
+			await Html.RenderPartialAsync("_ValidationScriptsPartial");
+		}
+	}
+</form>
+
